@@ -51,6 +51,7 @@ commands:
       - run:
           name: Install Oxygen CLI
           command: |
+            sudo apt-get install unixodbc unixodbc-dev
             npm set prefix=/home/circleci/npm
             echo 'export PATH=$HOME/npm/bin:$PATH' >> /home/circleci/.bashrc
             source /home/circleci/.bashrc
