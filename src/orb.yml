@@ -140,8 +140,7 @@ commands:
       - run:
           name: Start Selenium Standalone Server
           command: |
-            # java -jar selenium-server-standalone-<< parameters.selenium-patch-version >>.jar -port 4444 -timeout 320 -browserTimeout 320 -log test-reports/selenium.log
-            java -jar selenium-server-standalone-<< parameters.selenium-patch-version >>.jar -log test-reports/selenium.log
+            java -jar selenium-server-standalone-<< parameters.selenium-patch-version >>.jar -port 4444 -timeout 320 -browserTimeout 320 -log test-reports/selenium.log
           background: true
 
 jobs:
@@ -182,6 +181,7 @@ jobs:
       - install-mono:
           install-dotnet-framework: << parameters.install-dotnet-framework >>
       - start-server
+      - run: sleep 30
 
 examples:
   install_and_start_server:
