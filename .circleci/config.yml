@@ -7,6 +7,6 @@ workflows:
   install_and_start_server:
     jobs:
       - cloudbeat/install-and-start-server:
-          selenium-minor-version: 3.5
-          selenium-patch-version: 3.5.3
+          selenium-minor-version: "3.5"
+          selenium-patch-version: "3.5.3"
           install-dotnet-framework: false
