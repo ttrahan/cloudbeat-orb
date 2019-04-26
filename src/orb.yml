@@ -219,13 +219,13 @@ jobs:
         type: boolean
         default: false
     steps: 
-      - install-oxygen-cli
       - install-selenium:
           selenium-minor-version: << parameters.selenium-minor-version >>
           selenium-patch-version: << parameters.selenium-patch-version >>
       - install-mono:
           install-dotnet-framework: << parameters.install-dotnet-framework >>
       - start-server
+      - install-oxygen-cli
 
 examples:
   install_and_start_server:
