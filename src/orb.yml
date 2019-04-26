@@ -181,7 +181,7 @@ jobs:
           selenium-patch-version: << parameters.selenium-patch-version >>
       - install-mono:
           install-dotnet-framework: << parameters.install-dotnet-framework >>
-      # - start-server
+      - start-server
 
 examples:
   install_and_start_server:
