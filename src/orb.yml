@@ -140,7 +140,8 @@ commands:
       - run:
           name: Start Selenium Standalone Server
           command: |
-            java -jar selenium-server-standalone-<< parameters.selenium-patch-version >>.jar -port 4444 -timeout 320 -browserTimeout 320 -log test-reports/selenium.log
+            # java -jar selenium-server-standalone-<< parameters.selenium-patch-version >>.jar -port 4444 -timeout 320 -browserTimeout 320 -log test-reports/selenium.log
+            java -jar selenium-server-standalone-<< parameters.selenium-patch-version >>.jar -log test-reports/selenium.log
           background: true
 
 jobs:
@@ -174,13 +175,13 @@ jobs:
         type: boolean
         default: false
     steps: 
-      # - install-oxygen-cli
+      - install-oxygen-cli
       - install-selenium:
           selenium-minor-version: << parameters.selenium-minor-version >>
           selenium-patch-version: << parameters.selenium-patch-version >>
       - install-mono:
           install-dotnet-framework: << parameters.install-dotnet-framework >>
-      - start-server
+      # - start-server
 
 examples:
   install_and_start_server:
