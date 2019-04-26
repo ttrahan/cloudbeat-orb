@@ -174,7 +174,7 @@ jobs:
         type: boolean
         default: false
     steps: 
-      - install-oxygen-cli
+      # - install-oxygen-cli
       - install-selenium:
           selenium-minor-version: << parameters.selenium-minor-version >>
           selenium-patch-version: << parameters.selenium-patch-version >>
