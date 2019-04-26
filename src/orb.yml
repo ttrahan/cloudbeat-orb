@@ -57,26 +57,6 @@ commands:
             source /home/circleci/.bashrc
             npm install -g oxygen-cli
 
-      - when:
-          condition: << parameters.install-dotnet-framework >>
-          steps:
-            - run:
-                name: Install Mono .Net framework for Debian 9
-                command: |
-                  sudo apt install apt-transport-https dirmngr gnupg ca-certificates
-                  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-                  echo "deb https://download.mono-project.com/repo/debian stable-stretch main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-                  sudo apt update
-                  sudo apt install mono-devel
-
-      - run:
-          name: Install Selenium Standalone Server
-          command: |
-            curl -O http://selenium-release.storage.googleapis.com/<< parameters.selenium-minor-version >>/selenium-server-standalone-<< parameters.selenium-patch-version >>.jar
-
-      - run:
-          name: Create test-reports directory
-          command: mkdir test-reports
 
   install-mono:
     description: >
@@ -181,6 +161,10 @@ commands:
         default: "3.5.3"
 
     steps:
+      - run:
+          name: Create test-reports directory
+          command: mkdir test-reports
+
       - run:
           name: Start Selenium Standalone Server
           command: |
