@@ -91,11 +91,11 @@ examples:
     usage:
       version: 2.1
       orbs: 
-        oxygen: sandbox/cloudbeat-orb@1.0.0
+        cloudbeat: sandbox/cloudbeat-orb@1.0.0
       workflows:
         install_and_start_server:
           jobs:
-            - oxygen/install-start-server:
+            - cloudbeat/install-and-start-server:
                 selenium-minor-version: 3.5
                 selenium-patch-version: 3.5.3
                 install-dotnet-framework: false
