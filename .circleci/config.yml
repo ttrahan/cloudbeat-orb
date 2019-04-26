@@ -5,7 +5,8 @@ orbs:
 
 workflows:
   install_and_start_server:
-    - oxygen/install-start-server:
-        selenium-minor-version: 3.5
-        selenium-patch-version: 3.5.3
-        install-dotnet-framework: false
+    jobs:
+      - oxygen/install-start-server:
+          selenium-minor-version: 3.5
+          selenium-patch-version: 3.5.3
+          install-dotnet-framework: false
