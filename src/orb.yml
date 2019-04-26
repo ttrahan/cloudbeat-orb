@@ -184,7 +184,6 @@ commands:
       - run:
           name: Start Selenium Standalone Server
           command: |
-            mkdir test-reports
             java -jar selenium-server-standalone-<< parameters.selenium-patch-version >>.jar -port 4444 -timeout 320 -browserTimeout 320 -log test-reports/selenium.log
           background: true
 
