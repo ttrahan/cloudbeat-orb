@@ -68,23 +68,12 @@ commands:
         type: executor
         default: default
       
-      checkout:
-        description: >
-          Boolean for whether or not to checkout as a first step. Default is true.
-        type: boolean
-        default: true
-
       install-dotnet-framework:
         description: indicate whether to install the Mono .NET framework
         type: boolean
         default: false
 
     steps:
-      - when:
-          condition: << parameters.checkout >>
-          steps:
-            - checkout
-
       - when:
           condition: << parameters.install-dotnet-framework >>
           steps:
@@ -106,12 +95,6 @@ commands:
         description: executor to use for this job
         type: executor
         default: default
-      
-      checkout:
-        description: >
-          Boolean for whether or not to checkout as a first step. Default is true.
-        type: boolean
-        default: true
 
       selenium-minor-version:
         description: the minor version of Selenium Standalone Server to use
@@ -124,11 +107,6 @@ commands:
         default: "3.5.3"
 
     steps:
-      - when:
-          condition: << parameters.checkout >>
-          steps:
-            - checkout
-
       - run:
           name: Install Selenium Standalone Server
           command: |
@@ -144,12 +122,6 @@ commands:
         type: executor
         default: default
       
-      checkout:
-        description: >
-          Boolean for whether or not to checkout as a first step. Default is true.
-        type: boolean
-        default: true
-
       selenium-minor-version:
         description: the minor version of Selenium Standalone Server to use
         type: string
@@ -202,13 +174,13 @@ jobs:
         type: boolean
         default: false
     steps: 
+      - install-oxygen-cli
       - install-selenium:
           selenium-minor-version: << parameters.selenium-minor-version >>
           selenium-patch-version: << parameters.selenium-patch-version >>
       - install-mono:
           install-dotnet-framework: << parameters.install-dotnet-framework >>
       - start-server
-      - install-oxygen-cli
 
 examples:
   install_and_start_server:
