@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs: 
-  oxygen: ttrahan/oxygen-orb@dev:first
+  oxygen: ttrahan/cloudbeat-orb@dev:first
 
 workflows:
   install_and_start_server:

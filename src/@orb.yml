@@ -91,7 +91,7 @@ examples:
     usage:
       version: 2.1
       orbs: 
-        oxygen: sandbox/oxygen-orb@1.0.0
+        oxygen: sandbox/cloudbeat-orb@1.0.0
       workflows:
         install_and_start_server:
           jobs:
